@@ -1,0 +1,43 @@
+﻿@model Joe_Pizza_App.Models.UserDetails
+
+<script language="javascript">
+    function display() {
+        if ($("#txtusername").attr("value") == null) {
+            alert("Please Enter your UserName.");
+            return false;
+        }
+        else if ($("#txtuserpassword").attr("value") =="") {
+            alert("Please enter UserPassword.");
+            return false;
+        }
+        else {
+            alert("Details Entered");
+        }
+        alert("Login Successfully");
+        return true;
+    }
+</script>
+<h1>Joe Pizza </h1>
+<h4>Logg in order Pizzas</h4>
+<img src="~/Views/Shared/Pizza.jpg" />
+@using (Html.BeginForm("Index", "Home"))
+{
+    <table width="40%" cellpadding="1" cellspacing="5">
+        <tr>
+            <td colspan="2" style="color:#f00;font-size:larger">@ViewBag.Status</td>
+        </tr>
+        <tr>
+            <td align="right">User Name :</td>
+            <td>@Html.TextBoxFor(X => X.UserName, new { @style = "width:200px", @id = "txtusername" })</td>
+        </tr>
+        <tr>
+            <td align="right">User Password :</td>
+            <td>@Html.PasswordFor(X=> X.UserPassword, new { @style = "width:200px", @id = "txtuserpassword" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login" title="login" onclick=" display();" />
+            </td>
+        </tr>
+    </table>
+} 
